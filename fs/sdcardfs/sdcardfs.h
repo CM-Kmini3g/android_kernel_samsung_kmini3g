@@ -468,7 +468,7 @@ static inline int prepare_dir(const char *path_s, uid_t uid, gid_t gid, mode_t m
 	struct iattr attrs;
 	struct path parent;
 
-	dent = kern_path_locked(path_s, &parent);
+	dent = (kern_path_locked(path_s, &parent));
 	if (IS_ERR(dent)) {
 		err = PTR_ERR(dent);
 		if (err == -EEXIST)
